@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D playerRB;   //Variable playerRB declared as RigidBody2D
 
     private static bool playerExists;   //Variable to determine whether the player already exists in a scene, if so do not create a new
-                                            //player whenever entering another scene.
+                                        //player whenever entering another scene.
+    private static int spawnPointID;
 
     void Start()
     {
@@ -72,5 +73,15 @@ public class PlayerController : MonoBehaviour {
         anim.SetBool("IsMoving", isMoving);     //Sets bool isMoving in anim object to isMoving.
         anim.SetFloat("LastMoveX", lastX);      //Sets float LastMoveX to lastX.                     (Last input)
         anim.SetFloat("LastMoveY", lastY);      //sets float LastMoveY to lastY.                     (Last input)
+    }
+
+    public int getSpawnID()
+    {
+        return spawnPointID;
+    }
+
+    public void setSpawnID(int newID)
+    {
+        spawnPointID = newID;
     }
 }
